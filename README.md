@@ -7,7 +7,6 @@ A secure phone verification system for Qualtrics surveys using Twilio's Verify A
 This project implements a system that requires users to verify their phone numbers via a one-time password (OTP) before proceeding with a Qualtrics survey. It enhances security, ensures data quality, and prevents fraudulent survey submissions.
 
 The system consists of:
-- A backend server deployed on CMU's Sparkle server
 - Custom JavaScript integration with Qualtrics surveys
 - Twilio Verify API for secure OTP delivery and validation
 - File-based session management system
