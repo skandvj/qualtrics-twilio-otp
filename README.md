@@ -1,25 +1,47 @@
-# Qualtrics-Twilio OTP Integration
+# Qualtrics-Twilio OTP Verification System
 
-This project implements a secure phone verification system using Twilio's Verify API to protect Qualtrics surveys with OTP (One-Time Password) verification.
+A secure phone verification system for Qualtrics surveys using Twilio's Verify API.
 
-## Project Structure
-qualtrics-twilio-otp/
-├── server/
-│   ├── app.js                 # Express application entry point
-│   ├── config/
-│   │   ├── twilio.js          # Twilio configuration
-│   │   └── index.js           # Main configuration
-│   ├── controllers/
-│   │   └── authController.js  # OTP generation and verification
-│   ├── middleware/
-│   │   └── validator.js       # Input validation
-│   ├── routes/
-│   │   └── auth.js            # API routes
-│   └── package.json           # Dependencies
-├── qualtrics/
-│   └── embedded-js/           # JavaScript for Qualtrics integration
-│       ├── entry-page.js      # First page with phone number input
-│       └── verification.js    # OTP verification logic
-└── README.md                  # Documentation
+## Overview
 
-    See full documentation for setup and deployment instructions.
+This project implements a system that requires users to verify their phone numbers via a one-time password (OTP) before proceeding with a Qualtrics survey. It enhances security, ensures data quality, and prevents fraudulent survey submissions.
+
+The system consists of:
+- A backend server deployed on CMU's Sparkle server
+- Custom JavaScript integration with Qualtrics surveys
+- Twilio Verify API for secure OTP delivery and validation
+- File-based session management system
+
+## Features
+
+- Phone number verification via SMS
+- Session management for continuous authentication
+- Rate limiting to prevent abuse
+- Cross-origin resource sharing (CORS) protection
+- Automatic session expiration and cleanup
+- Qualtrics integration via JavaScript and Embedded Data
+
+## Architecture
+
+The system follows a client-server architecture:
+
+1. **User Interface**: Qualtrics survey with custom JavaScript
+2. **Backend**: Node.js/Express application on CMU Sparkle 
+3. **External API**: Twilio Verify service
+4. **Session Storage**: File-based persistence on Sparkle server
+
+## Prerequisites
+
+- Node.js (v14+) and npm
+- Twilio account with Verify API access
+- Qualtrics survey account
+- CMU Sparkle server access
+
+## Installation
+
+### Backend Server Setup
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/skandvj/qualtrics-twilio-otp.git
+   cd qualtrics-twilio-otp/server
